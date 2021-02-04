@@ -16,4 +16,11 @@
         android:text="MyAccess"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_centerInParent="true"
+        android:layout_width="200dp"
+        android:hint="test here"
+        android:imeOptions="actionDone"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

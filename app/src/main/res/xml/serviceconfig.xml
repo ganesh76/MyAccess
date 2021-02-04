@@ -3,6 +3,9 @@
     android:description="@string/app_name"
     android:accessibilityFeedbackType="feedbackSpoken"
     android:notificationTimeout="100"
-    android:settingsActivity="com.example.android.apis.accessibility.TestBackActivity"
+    android:accessibilityFlags="flagDefault|flagIncludeNotImportantViews|flagRequestTouchExplorationMode|flagRequestEnhancedWebAccessibility|flagReportViewIds|flagRequestFilterKeyEvents"
+    android:canRequestTouchExplorationMode="true"
+    android:canRequestFilterKeyEvents="true"
+    android:canRequestEnhancedWebAccessibility="true"
     android:canRetrieveWindowContent="true"
     xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,15 +1,27 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "25.0.0"
+
+    signingConfigs {
+        release {
+            storeFile file('C:\\Users\\ganes\\Desktop\\myplaystorekey.jks')
+            storePassword 'Happyman76@#'
+            keyPassword 'Happyman76@#'
+            keyAlias 'keyalias'
+        }
+    }
+
+    compileSdkVersion 30
+    buildToolsVersion '30.0.3'
     defaultConfig {
         applicationId "g.accessibityservice"
         minSdkVersion 18
-        targetSdkVersion 24
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.release
+
     }
     buildTypes {
         release {
@@ -20,10 +32,10 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:24.2.1'
-    testCompile 'junit:junit:4.12'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+      //  exclude group: 'com.android.support', module: 'support-annotations'
+    //})
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+  //  testImplementation 'junit:junit:4.12'
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="g.accessibityservice">
-    <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE" />
+    <uses-permission android:protectionLevel="signature" android:name="android.permission.BIND_ACCESSIBILITY_SERVICE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,7 +13,7 @@
                 <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>
             <meta-data android:name="android.accessibilityservice"
-                android:resource="@xml/serviceconfig" />
+                android:resource="@xml/serviceconfig"/>
         </service>
         <activity android:name=".MainActivity" android:theme="@style/Theme.AppCompat.Light">
             <intent-filter>

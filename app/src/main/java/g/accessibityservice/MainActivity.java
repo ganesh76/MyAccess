@@ -1,19 +1,15 @@
 package g.accessibityservice;
 
-import android.accessibilityservice.AccessibilityServiceInfo;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.provider.Settings;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.accessibility.AccessibilityManager;
 import android.widget.Toast;
 
-import java.util.List;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     public static String TAG = "MainActivity";

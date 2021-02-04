@@ -4,10 +4,13 @@ import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
-import android.widget.EditText;
+import android.view.accessibility.AccessibilityWindowInfo;
 import android.widget.Toast;
+
+import java.util.Arrays;
 
 /**
  * Created by ganesh on 09-11-2016.
@@ -21,15 +24,23 @@ public class MyAccessibilityService extends AccessibilityService
     {
         AccessibilityNodeInfo source;
         AccessibilityNodeInfo rowNode;
+
+        if (event.getSource() == null) {
+            Log.d(MyAccessibilityService.class.getSimpleName(), "the source = null");
+            return;
+        }
        if(event.getEventType()==AccessibilityEvent.TYPE_VIEW_TEXT_CHANGED)
        {
            Log.v(TAG,"editable one");
+
            source = event.getSource();
-           rowNode = getListItemNodeInfo(source);
-           if (source == null)
+           /*if (source == null)
            {
+               //Toast.makeText(getApplicationContext(), Arrays.toString(event.getText().toArray()).replace("[","").replace("]",""),Toast.LENGTH_SHORT).show();
                return;
-           }
+           }*/
+           rowNode = getListItemNodeInfo(source);
+
 
            if (rowNode == null)
            {
@@ -76,8 +87,7 @@ public class MyAccessibilityService extends AccessibilityService
         AccessibilityNodeInfo current = source;
         while (true) {
             AccessibilityNodeInfo parent = current.getParent();
-            if (parent == null)
-            {
+            if (parent == null) {
                 return null;
             }
             AccessibilityNodeInfo oldCurrent = current;
